@@ -1,0 +1,28 @@
+{
+  "name": "s3lhd",
+  "version": "0.0.1",
+  "description": "AWS S3 file uploader",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo Please run \"s3lhdr\" from the command prompt"
+  },
+  "bin": {
+    "s3lhd": "bin/s3lhd"
+  },
+  "keywords": [
+    "AWS",
+    "S3",
+    "upload",
+    "file upload",
+    "CLI"
+  ],
+  "author": "Fredrik Andersson <fredrik.k.andersson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.259.1",
+    "mime-types": "^2.1.18",
+    "minimist": "^1.2.0",
+    "ora": "^2.1.0",
+  }
+}
