@@ -1,6 +1,6 @@
 {
   "name": "s3lhd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AWS S3 file uploader",
   "main": "src/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "file upload",
     "CLI"
   ],
-  "author": "Fredrik Andersson <fredrik.k.andersson@gmail.com>",
+  "author": "Fredrik Andersson <frklan@ymail.com>",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.259.1",
