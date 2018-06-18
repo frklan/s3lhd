@@ -1,6 +1,6 @@
 {
   "name": "s3lhd",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AWS S3 file uploader",
   "main": "src/index.js",
   "scripts": {
@@ -24,5 +24,9 @@
     "mime-types": "^2.1.18",
     "minimist": "^1.2.0",
     "ora": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frklan/s3lhd"
   }
 }
