@@ -26,14 +26,14 @@ A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to mak
 
 You can also read the local file from stdin, e.g. to upload camera images from an raspberry pi:
 
-	$ /opt/vc/bin/raspistill -o - | s3lhd --bucket [aws bucket name] --awsfile photo.jpg
+	$ /opt/vc/bin/raspistill -o - | s3lhd --awsbucket [aws bucket name] --awsfile photo.jpg
 
 ## TODO's
 
 - [ ] Read config from file
- 	-	[ ] AWS access key and secret
-	-	[ ] bucket name
-- [ ] Improved error handling
+  - [ ] AWS access key and secret
+  - [ ] bucket name
+- [ ] Improved error handling
  
   
 ## Contributing
