@@ -1,6 +1,8 @@
 # S3LHD
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/frklan/s3lhd/blob/master/LICENSE)
 
+**N.B. Still in Beta! Beware of bugs and unexpected behaviour.**
+
 A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to make it easy to upload images from a raspberry pi camera without having any writes to the SD card.
 
 ## Running the app
@@ -19,14 +21,21 @@ A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to mak
 
 2. Install the app with ````$npm install s3lhd -g````
 
-3. run ```$ s3lhd [local file]  --bucket [aws bucket name]```
+3. run ```$ s3lhd [local file]  --awsbucket [aws bucket name]```
 
 
 You can also read the local file from stdin, e.g. to upload camera images from an raspberry pi:
 
 	$ /opt/vc/bin/raspistill -o - | s3lhd --bucket [aws bucket name] --awsfile photo.jpg
 
+## TODO's
 
+- [ ] Read config from file
+ 	-	[ ] AWS access key and secret
+	-	[ ] bucket name
+- [ ] Improved error handling
+ 
+  
 ## Contributing
 
 Contributions are always welcome!
