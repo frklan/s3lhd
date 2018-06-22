@@ -33,21 +33,24 @@ function extractOptions(localFile, args) {
   options.file = path.basename(localFile);
   console.log(`Remote file: ${options.file}`);
   
-  options.awsBucket = args.awsbucket || null;
-  if(options.awsBucket == null) {
+  options.awsBucket = String(args.awsbucket);
+  if(options.awsBucket == undefined) {
     console.error('AWS bucket not defined, can\'t continue.');
     return null;
   }
   console.log(`Receiving bucket is ${options.awsBucket}`);
 
   /* The following are optional and will be set to default values if the user don't care */
-  options.contentType = args.contenttype  || mime.lookup(localFile) || 'application/octet-stream';
+  options.contentType = String(args.contenttype  || mime.lookup(localFile) || 'application/octet-stream');
   console.log(`Content type: ${options.contentType}`);
   
-  options.awsPath =  path.join(args.awsdir || '/', options.file);
+  options.awsPath =  path.join(String(args.awsdir || ''), options.file);
   console.log(`AWS path: ${options.awsPath}`);
-
-  options.acl = args.awsacl || 'public-read';
+  if(options.awsPath[0] === '/') {
+    console.error('I will accept remote paths starting with \'/\', however it might not be what you want!');
+  }
+  
+  options.acl = String(args.awsacl || 'public-read');
   console.log(`access is: ${options.acl}`);
 
   return options;
