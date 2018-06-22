@@ -21,12 +21,14 @@ A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to mak
 
 2. Install the app with ````$npm install s3lhd -g````
 
-3. run ```$ s3lhd [local file]  --awsbucket [aws bucket name]```
+3. run ```$ s3lhd upload [local file] --awsbucket [aws bucket name]```
 
 
 You can also read the local file from stdin, e.g. to upload camera images from an raspberry pi:
 
-	$ /opt/vc/bin/raspistill -o - | s3lhd --awsbucket [aws bucket name] --awsfile photo.jpg
+	$ /opt/vc/bin/raspistill -o - | s3lhd upload --awsbucket [aws bucket name] --awsfile photo.jpg
+
+Note that `--awsfile <filename>`is mandatory when piping a file.
 
 ## TODO's
 
