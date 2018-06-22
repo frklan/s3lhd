@@ -21,9 +21,10 @@
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.259.1",
+    "chalk": "^2.4.1",
+    "collections": "^5.1.2",
     "mime-types": "^2.1.18",
-    "minimist": "^1.2.0",
-    "ora": "^2.1.0"
+    "minimist": "^1.2.0"
   },
   "repository": {
     "type": "git",

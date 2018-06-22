@@ -5,7 +5,6 @@ const AWS = require('aws-sdk');
 const fs = require('fs');
 const mime = require('mime-types');
 const path = require('path');
-const spinner = require('ora')();
 const uploader = require('./s3uploader');
 
 module.exports = async (args) => {
@@ -51,7 +50,6 @@ function extractOptions(args) {
 
 async function uploadDataFromPipe(options) {
   let data = Buffer.alloc(0);
-  spinner.start();
 
   process.stdin.on('data', (chunk) => {
     //console.log(chunk);
@@ -63,7 +61,6 @@ async function uploadDataFromPipe(options) {
   
   process.stdin.on('end', function () {
     //save(data, options);
-    spinner.stop();
     uploader.uploadToS3(data, options);
   });
 }
