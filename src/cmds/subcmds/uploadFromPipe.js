@@ -6,9 +6,9 @@ const fs = require('fs');
 const mime = require('mime-types');
 const path = require('path');
 const spinner = require('ora')();
-const uploader = require('../s3uploader');
+const uploader = require('./s3uploader');
 
-module.exports = async (files, args) => {
+module.exports = async (args) => {
   const options = extractOptions(args);
   if(options === null)
     return -1;

@@ -3,20 +3,20 @@
 const fs = require('fs');
 const mime = require('mime-types');
 const path = require('path');
-const uploader = require('../s3uploader');
+const uploader = require('./subcmds/s3uploader');
+const pipeUploader = require('./subcmds/uploadFromPipe');
 
 module.exports = async (files, args) => {
-    if(files.length > 0) {
+    if(files.length < 1) { // source file not spec'd, expect read data from stdin
+      pipeUploader(args);
+    } else {
       files.forEach(file => {
         const options = extractOptions(file, args);
         if(options != null) {
           uploadFile(String(file), options);
         }
       });
-    } else {
-      console.error('No input file, unable to continue.');
-      return -1;
-   } 
+    } 
 }
 
 function extractOptions(localFile, args) {
