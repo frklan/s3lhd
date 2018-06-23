@@ -1,6 +1,6 @@
 {
   "name": "s3lhd",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "AWS S3 file uploader",
   "main": "src/index.js",
   "scripts": {
