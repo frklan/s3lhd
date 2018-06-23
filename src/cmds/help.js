@@ -7,6 +7,7 @@ const menu = {
 
     upload                       upload file(s) to AWS S3 bucket
     version                      show version string
+    help                         show help menu
     `,
 
     upload: `
@@ -19,6 +20,7 @@ const menu = {
     --awsfile                    remote filename, only valid for piped upload
     --awsdir                     remote directory to upload to upload to
     --awsacl                     remote access for uploaded file, defalts to \'public-read\'
+    -r                           recursivley upload all subdirs
     `
 
 }
