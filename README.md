@@ -13,7 +13,7 @@ A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to mak
 
 ### Running
 
-1. Create an AWS S3 credetial file in  ````~/.aws/credentials````containing:
+1. Create an AWS S3 credential file in  ````~/.aws/credentials````containing:
 
 		[default]
 		aws_access_key_id = <YOUR-ACCESS_KEY>
@@ -21,7 +21,7 @@ A simple CLI app for easy file upload to an AWS S3 bucket. Created mainly to mak
 
 2. Install the app with ````$npm install s3lhd -g````
 
-3. run ```$ s3lhd upload [local file] --awsbucket [aws bucket name]```
+3. Run ```$ s3lhd upload [local file] --awsbucket [aws bucket name]```
 
 
 You can also read the local file from stdin, e.g. to upload camera images from an raspberry pi:
