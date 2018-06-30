@@ -5,7 +5,7 @@ module.exports = () => {
   const args = minimist(process.argv.slice(2))
   let cmd = args._[0] || 'help';
   let files = args._.slice(1);
-  
+
   //console.log(`cmd = ${cmd}`);
   //console.log(`files = ${files}`);
 

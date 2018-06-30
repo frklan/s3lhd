@@ -13,12 +13,15 @@ module.exports = async (files, args) => {
       pipeUploader(args);
     } else { // we have a list of files as args (possibly including subdir names)
       let fileList = [];
+      const basePath = path.parse(files[0]).dir;
+      
       if(args.r) { // do we traverese down in subdirs?
         fileList = (await buildRecursiveFileList(files, '')).toArray();
       } else { // no.
         fileList = (await buildFileList(files)).toArray();
       }
-      await uploadFiles(fileList, args); // upload all files!
+      
+      await uploadFiles(fileList, basePath, args); // upload all files!
     } 
 }
 
@@ -54,7 +57,7 @@ async function buildFileList(files) {
   return fileList;
 }
 
-function extractOptions(localFile, args) {
+function extractOptions(localFile, basePath, args) {
   let options = {};
   
   /* Unused option when dealing with files */
@@ -79,7 +82,7 @@ function extractOptions(localFile, args) {
   options.contentType = String(args.contenttype  || mime.lookup(localFile) || 'application/octet-stream');
   //console.log(`Content type: ${options.contentType}`);
   
-  options.awsPath =  path.join(String(args.awsdir || ''), options.file);
+  options.awsPath =  path.join(String(args.awsdir || ''), path.relative(basePath, options.file));
   //console.log(`AWS path: ${options.awsPath}`);
   if(options.awsPath[0] === '/') {
     console.error(chalk.yellow('I will accept remote paths starting with \'/\', however it might not be what you want!'));
@@ -91,7 +94,7 @@ function extractOptions(localFile, args) {
   return options;
 }
 
-async function uploadFiles(files, args) {
+async function uploadFiles(files, basePath, args) {
   await files.forEach(async (file) => {
     console.log(`Uploading: ${chalk.green(file)}`);  
 
@@ -105,6 +108,6 @@ async function uploadFiles(files, args) {
       return;
     }
 
-    await uploader.uploadToS3(fs.readFileSync(file), extractOptions(file, args));
+    await uploader.uploadToS3(fs.readFileSync(file), extractOptions(file, basePath, args));
   });
 }
